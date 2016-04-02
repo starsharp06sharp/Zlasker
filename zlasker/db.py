@@ -29,7 +29,9 @@ def create_table(drop=False):
     with app.app_context():
         db = get_db()
         if drop:
-            db.execute('drop table if exists entries')
+            with app.open_resource('drop_table.sql', mode='r') as f:
+                db.executescript(f.read())
+
         with app.open_resource('schema.sql', mode='r') as f:
             db.executescript(f.read())
         db.commit()

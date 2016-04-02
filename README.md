@@ -1,6 +1,8 @@
 ##Zlasker
 A simple single user blog system from flaskr.
 
+You can put your username and password in `./zlasker/settings.py`
+
 You can create database by the command below:
 ```bash
 $ ./create_table.py [--drop]
